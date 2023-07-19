@@ -35,6 +35,7 @@
 .box.notice{
     color: rgb(18, 16, 151);
     background-color: rgb(184, 217, 255);
+    cursor: not-allowed;
 }
 
 @keyframes appear{

@@ -9,7 +9,7 @@ function shuffleChildren(parent){
         }
     }
 
-function showReactions(type, clickedBox){
+function showReaction(type, clickedBox){
     clickedBox.classList.add(type);
     if(type !== "success"){
         setTimeout(function(){
@@ -26,6 +26,7 @@ const board = document.querySelector("#board");
 
 let nb = 1;
 
+// permettre a l'utilsaeur de choisir le nbre de box
 let choixNombre = parseInt(prompt("Choisissez un nombre")); 
 
 for(let i = 1; i <= choixNombre; i++){
@@ -42,24 +43,27 @@ for(let i = 1; i <= choixNombre; i++){
             newbox.classList.add("box-valid");
             if(nb == board.children.length){
                 board.querySelector(".box-valid").foreach(function(){
-                    showReactions("succes", box);
+                    showReaction("succes", box);
                 })
             }
             nb++;
         }
         // 2
         else if(i > nb){
-            showReactions("error", newbox);
+            showReaction("error", newbox);
             nb = 1;
+            //melange les box lorque l'on se trompe
+            shuffleChildren(board);
             board.querySelectorAll(".box-valid").forEach(function(validBox){
                 validBox.classList.remove("box-valid");
             })
         }
         // 3
         else{
-            showReactions("notice", newbox);
+            showReaction("notice", newbox);
         } 
     })
 }
 
+//melange les box au chargement de la page
 shuffleChildren(board);
