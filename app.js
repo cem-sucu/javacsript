@@ -17,7 +17,14 @@ const board = document.querySelector("#board");
 
 
 for(let i = 1; i <= 10; i++){
-    let newbox = box.cloneNode();
+    const newbox = box.cloneNode();
     newbox.innerText = i;
     board.appendChild(newbox);
+
+    newbox.addEventListener("click", function() {
+        // console.log("Boite n°" + i + ", click !");
+        console.log(`Boite n° $i, click !`);
+    })
 }
+
+shuffleChildren(board);
