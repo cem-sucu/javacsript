@@ -41,6 +41,8 @@ for(let i = 1; i <= choixNombre; i++){
         // 1
         if(i == nb){
             newbox.classList.add("box-valid");
+            // re melange a chaque bon clique
+            shuffleChildren(board);
             if(nb == board.children.length){
                 board.querySelector(".box-valid").foreach(function(){
                     showReaction("succes", box);
