@@ -26,7 +26,9 @@ const board = document.querySelector("#board");
 
 let nb = 1;
 
-for(let i = 1; i <= 10; i++){
+let choixNombre = parseInt(prompt("Choisissez un nombre")); 
+
+for(let i = 1; i <= choixNombre; i++){
     const newbox = box.cloneNode();
     newbox.innerText = i;
     board.appendChild(newbox);
