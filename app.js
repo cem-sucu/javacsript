@@ -69,3 +69,21 @@ for(let i = 1; i <= choixNombre; i++){
 
 //melange les box au chargement de la page
 shuffleChildren(board);
+
+
+//timer
+const timerElement = document.getElementById("timer");
+
+let temps = 59;
+
+
+function diminuerTemps() {
+    let minutes = parseInt(temps / 60, 10)
+    let secondes = parseInt(temps % 60, 10)
+    timerElement.innerText = temps;
+    temps--;
+    
+    timerElement.innerText = minutes + ":" + secondes;
+}
+setInterval(diminuerTemps, 1000);
+
